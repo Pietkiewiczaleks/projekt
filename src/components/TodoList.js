@@ -8,7 +8,7 @@ const TodoList = ({ todos, setTodos, filteredTodos }) => {
         <div className="todo-container">
           <ul className="todo-list">
             {filteredTodos.map(todo => (
-              <Todo setTodos={setTodos} todos={todos} key={todo.id} todo={todo} text={todo.text} />
+              <Todo setTodos={setTodos} todos={todos} key={todo.id} todo={todo} text={todo.text} /> //dla każdej pozycji to do trorzymy element z wyremderowany komponent
             ))}
           </ul>
       </div>

@@ -5,30 +5,30 @@ import Form from './components/Form';
 import TodoList from './components/TodoList';
 
 function App() {
-  const [inputText, setInputText] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [inputText, setInputText] = useState(''); //wartość i funkcja zmieniająca wartość 
+  const [todos, setTodos] = useState([]); 
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => { 
     saveLocalTodos();
     getLocalTodos();
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { // działa za każdym razem jak zmienia się status/todos
     filterHandler();
   }, [todos, status]);
 
   const filterHandler = () => {
     switch(status){
       case 'completed':
-        setFilteredTodos(todos.filter(todo => todo.completed === true));
+        setFilteredTodos(todos.filter(todo => todo.completed === true)); //filtruje zrobione todo
         break;
       case 'uncompleted':
-          setFilteredTodos(todos.filter(todo => todo.completed === false));
+          setFilteredTodos(todos.filter(todo => todo.completed === false)); //filtruje niezrobione todo
         break;
       default:
-        setFilteredTodos(todos);
+        setFilteredTodos(todos); //pokaż wszystkie defoltowo
         break;
     }
   };
@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>GetOrganized</h1>
+        <h1>GetOrganized <br /> <h4>  by  Aleksandra  Pietkiewicz</h4></h1>
       </header>
       <Form 
         inputText={inputText} 
